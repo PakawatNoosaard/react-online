@@ -3,6 +3,7 @@ import Button from '../styles/button/Button'
 import Title from '../styles/title/Title'
 import Logo from './Logo'
 
+
 const header = () => {
 
     const keyword = "correct"
@@ -42,8 +43,7 @@ const header = () => {
 
            {inslogin ? <Logo/> : <p>Unlock</p>} 
            <button onClick={showMe}>Click Me!</button>
-           <Button onClick={showMe} primary = {keyword}>
-               
+           <Button onClick={showMe} primary = {keyword}>  
                Click Me!
            </Button>
 
