@@ -3,61 +3,67 @@ import Button from '../styles/button/Button'
 import Title from '../styles/title/Title'
 import Logo from './Logo'
 
+const Header = () => {
 
-const header = () => {
-
-    const keyword = "correct"
     let companyName = "TNI"
+    const companyAddress = <p>Bangkok</p>
+    let number = 10
 
     const showMessage = () => {
         return companyName + ".com"
     }
 
-    const inslogin = true;
+    const isLogin = false;
 
-    const showMe = () =>{
-        alert("Hello React")
+    const showMe = () => {
+        alert('Hello react')
     }
 
-    const proDucts = [
-        {id:1, name:"Coke"},
-        {id:2, name:"Pepsi"}
+    const products = [
+        {id: 1, name: "Coke"},
+        {id: 2, name: "Pepsi"}
     ]
 
     return (
         <div>
             <Title>Project React</Title>
+            <h1>Hello {companyName}</h1>
+            {companyAddress}
+            {number * 2}
+            {showMessage()}
 
-            <h1>Hello {showMessage()} </h1>
-           {companyName}
-           {showMessage()}
+            {
+                isLogin === true ? (
+                    <>
+                        <p>Welcome</p>
+                        <p>Student</p>
+                    </>
+                ) : (
+                    <>
+                        <p>Welcome</p>
+                        <p>Teacher</p>
+                    </>
+                )
+            }
 
-           {
-               inslogin && (
-               <>
-               <p>Welcome </p>
-               <p>Student</p>
-               </>
-               ) 
-           }
+            { isLogin ? <Logo /> : <p>Unlock</p> }
 
-           {inslogin ? <Logo/> : <p>Unlock</p>} 
-           <button onClick={showMe}>Click Me!</button>
-           <Button onClick={showMe} primary = {keyword}>  
-               Click Me!
-           </Button>
+            <button onClick={showMe}>Click me!</button>
+            <Button onClick={showMe}>
+                Click me!
+            </Button>
 
-           <ul>
-           {
-               proDucts.map((product,index) => {
-                   return(<li key={index}>{product.name}</li>)
-               })
-           }
-           </ul>
+            <ul>
+            {
+                products.map((product,index) => {
+                    return (<li key={index}>{index+1} {product.name}</li>)
+                })
+            }
+            </ul>
 
-            <hr></hr>
+            <hr />
         </div>
     )
 }
 
-export default header
+export default Header

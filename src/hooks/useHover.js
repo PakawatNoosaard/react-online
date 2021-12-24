@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
 function useHover(){
+
     const [hover, setHover] = React.useState()
 
     const mouseOver = () => {
         setHover(true)
-
     }
 
     const mouseOut = () => {
@@ -13,6 +13,7 @@ function useHover(){
     }
 
     return [hover, mouseOver, mouseOut]
+
 }
 
 export default useHover

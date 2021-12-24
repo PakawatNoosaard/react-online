@@ -1,5 +1,5 @@
 const logo = {
-    borderColor: 'green',
+    boderColor: 'green',
     borderWidth: 2,
     borderStyle: 'solid'
 }

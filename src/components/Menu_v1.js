@@ -1,10 +1,16 @@
 import React from 'react'
-import useHover from '../hooks/useHover'
 
-const Menu = () => {
+const Menu1 = () => {
 
-    const [hover, mouseOver, mouseOut] = useHover()
+    const [hover, setHover] = React.useState()
 
+    const mouseOver = () => {
+        setHover(true)
+    }
+
+    const mouseOut = () => {
+        setHover(false)
+    }
 
     return (
         <div>
@@ -17,4 +23,4 @@ const Menu = () => {
     )
 }
 
-export default Menu
+export default Menu1

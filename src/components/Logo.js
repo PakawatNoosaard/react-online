@@ -14,14 +14,11 @@ const Logo = () => {
     return (
         <div>
             <h3 style={title}>Logo</h3>
-            
             {/* <img src={logoImage} width="100" alt="logo" /> */}
-            <img style={logo} onMouseOver={mouseOver} onMouseOut={mouseOut} src={logoImage.url} width="100" alt="logo" />
-            
             {
-                hover ? <h3>Logo</h3> : null
+                hover ? <p>Logo</p> : null
             }
-            <h1>Menu</h1>
+            <img onMouseOver={mouseOver} onMouseOut={mouseOut} style={logo} src={logoImage.url} width="100" alt="logo" />
         </div>
     )
 }
