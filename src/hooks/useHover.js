@@ -1,12 +1,11 @@
 import React from "react";
 
 function useHover(){
-    const[hover,setHover] = React.useState()
+    const [hover,setHover] = React.useState(false)
 
     const mouseOver = () =>{
         setHover(true)
     }
-
     const mouseOut = () =>{
         setHover(false)
     }
