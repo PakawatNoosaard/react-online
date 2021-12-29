@@ -1,6 +1,6 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap"
-import { NavLink } from "react-router-dom"
+import {Navbar,Nav,NavDropdown,Form,Button,FormControl} from "react-bootstrap"
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -11,10 +11,11 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
+            <NavLink className="nav-link" activeClassName="active" to="/" exact>Home</NavLink>
+            <NavLink className="nav-link" activeClassName="active" to="/about" >About</NavLink>
+            <NavLink className="nav-link" activeClassName="active" to="/product">Products</NavLink>
+            <NavLink className="nav-link" activeClassName="active" to="/contactUs">Contact Us</NavLink>
             {/* <Nav.Link href="#home">Home</Nav.Link> */}
-            <NavLink className="nav-link" activeClassName="active"  to="/" exact>Home</NavLink>
-            <NavLink className="nav-link" activeClassName="active"  to="/product">Product</NavLink>
-            <NavLink className="nav-link" activeClassName="active" to="/about">About</NavLink>
             <Nav.Link href="#link">Link</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

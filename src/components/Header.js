@@ -10,15 +10,15 @@ const Header = () => {
     let number = 10
 
     const showMessage = () => {
-        return companyName + ".com"
+        return "Hello " + companyName + ".com"
     }
 
     const isLogin = false;
 
-    const showMe = () => {
-        alert('Hello react')
+    const showME = () => {
+        alert('Hello React')
     }
-
+    
     const products = [
         {id: 1, name: "Coke"},
         {id: 2, name: "Pepsi"}
@@ -27,30 +27,31 @@ const Header = () => {
     return (
         <div>
             <Title>Project React</Title>
-            <h1>Hello {companyName}</h1>
+
+            <h1>{showMessage()}</h1>
             {companyAddress}
             {number * 2}
-            {showMessage()}
+            <p>{showMessage()}</p>
 
             {
-                isLogin === true ? (
+                isLogin === true ?  (                    
                     <>
-                        <p>Welcome</p>
-                        <p>Student</p>
+                    <p>welcome, student</p>
                     </>
-                ) : (
-                    <>
-                        <p>Welcome</p>
-                        <p>Teacher</p>
-                    </>
-                )
+                    ) : (
+                        <p>welcome, teacher</p>
+                    )
+            }
+            {
+                isLogin ? <Logo/> : <p>unlock</p>
             }
 
-            { isLogin ? <Logo /> : <p>Unlock</p> }
-
-            <button onClick={showMe}>Click me!</button>
-            <Button onClick={showMe}>
-                Click me!
+            {/* Workshop 2 */}
+            <Button keyword="correct" onClick={showME}>
+                Click me
+            </Button>
+            <Button keyword="not" onClick={showME}>
+                Click me
             </Button>
 
             <ul>
