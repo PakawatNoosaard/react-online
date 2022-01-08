@@ -1,7 +1,7 @@
 import React from "react";
 
 const Footer = () => {
-    const Name = "Supak Vetanat"
+    const Name = "Pakawat Noosaard"
   return (
     <>
       <footer className="container">

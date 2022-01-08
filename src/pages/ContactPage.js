@@ -11,7 +11,7 @@ function ContactPage() {
           <Card>
             <Card.Header>Contact Us</Card.Header>
             <Card.Body>
-              <Card.Title>Supak Vetanat</Card.Title>
+              <Card.Title>Pakawat Noosaard</Card.Title>
               <Card.Text>
               Hello everyone , You can call me 'Nut' for short, nice to meet you all!
                 <ul className="mt-2">
