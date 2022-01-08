@@ -13,7 +13,8 @@ import ProductPage from "./pages/ProductPage";
 import DetailPage from "./pages/DetailPage";
 import ContactPage from "./pages/ContactPage";
 import HospitalPage from "./pages/Hospital/HospitalPage";
-import CategoryPage from './pages/Category/CategoryPage'
+import CategoryPage from './pages/Category/CategoryPage';
+import EditPage from "./pages/Category/EditPage";
 
 
 function App() {
@@ -27,7 +28,14 @@ function App() {
           <Route path='/detail/:id/title/:title'><DetailPage/></Route>
           <Route path='/contact'><ContactPage/></Route>
           <Route path='/hospital'><HospitalPage/></Route>
-          <Route path="/category"><CategoryPage /></Route>
+          {/*<Route path='/category'><indexPage/></Route>*/}
+          <Route path='/category' render={ ({match : {url}}) => (
+            <>
+            <Route path={`${url}/`} exact><IndexPage></IndexPage></Route>
+            <Route path={`${url}/create`}><CreatePage></CreatePage></Route>
+            <Route path={`${url}/edit/:id`}><EditPage></EditPage></Route>
+            </>
+          )}></Route>
         </Switch>
         <Footer/>
     </Router>
