@@ -17,31 +17,35 @@ import CategoryPage from './pages/Category/CategoryPage';
 import IndexPage from "./pages/Category/IndexPage";
 import CreatePage from "./pages/Category/CreatePage";
 import EditPage from "./pages/Category/EditPage";
-
+import UploadPage from "./pages/UploadPage";
+import { ToastProvider} from 'react-toast-notifications';
 
 
 function App() {
   return (
-    <Router>
-        <NavBar/>
-        <Switch>
-          <Route exact path='/'><HomePage/></Route>
-          <Route path='/product'><ProductPage/></Route>
-          <Route path='/about'><AboutPage/></Route>
-          <Route path='/detail/:id/title/:title'><DetailPage/></Route>
-          <Route path='/contact'><ContactPage/></Route>
-          <Route path='/hospital'><HospitalPage/></Route>
-          {/*<Route path='/category'><indexPage/></Route>*/}
-          <Route path='/category' render={ ({match : {url}}) => (
-            <>
-            <Route path={`${url}/`} exact><IndexPage></IndexPage></Route>
-            <Route path={`${url}/create`}><CreatePage></CreatePage></Route>
-            <Route path={`${url}/edit/:id`}><EditPage></EditPage></Route>
-            </>
-          )}></Route>
+    <ToastProvider placement='top-center'>
+      <Router>
+          <NavBar/>
+          <Switch>
+            <Route exact path='/'><HomePage/></Route>
+            <Route path='/product'><ProductPage/></Route>
+            <Route path='/about'><AboutPage/></Route>
+            <Route path='/detail/:id/title/:title'><DetailPage/></Route>
+            <Route path='/contact'><ContactPage/></Route>
+            <Route path='/hospital'><HospitalPage/></Route>
+            <Route path='/upload'><UploadPage></UploadPage></Route>
+            {/*<Route path='/category'><indexPage/></Route>*/}
+            <Route path='/category' render={ ({match : {url}}) => (
+              <>
+              <Route path={`${url}/`} exact><IndexPage></IndexPage></Route>
+              <Route path={`${url}/create`}><CreatePage></CreatePage></Route>
+              <Route path={`${url}/edit/:id`}><EditPage></EditPage></Route>
+              </>
+            )}></Route>
         </Switch>
         <Footer/>
     </Router>
+    </ToastProvider>
   );
 }
 

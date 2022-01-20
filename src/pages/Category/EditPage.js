@@ -6,6 +6,7 @@ import * as yup from "yup";
 import axios from 'axios';
 import {useHistory,useParams} from 'react-router-dom';
 import { getDefaultNormalizer } from "@testing-library/react";
+import { useToasts } from 'react-toast-notifications';
 
 const schema = yup.object({
     name: yup.string().required('Category news cannot ne null'),
@@ -18,6 +19,8 @@ const EditPage = () => {
       });
 
     const history = useHistory();
+
+    const {addToast} = useToasts()
 
     const {id} = useParams(); 
 
@@ -34,7 +37,7 @@ const EditPage = () => {
             id : id,
             name: data.name,
           });
-          alert(resp.data.message)
+          addToast(resp.data.message,{ appearance: 'success',autoDismiss: true})
           history.replace('/category')
     }catch(error){
         console.log(error.response)
@@ -66,7 +69,7 @@ const EditPage = () => {
             </Form.Group>
 
             <Button variant="primary" type="submit">
-              Submit
+            Update
             </Button>
           </Form>
           </div>

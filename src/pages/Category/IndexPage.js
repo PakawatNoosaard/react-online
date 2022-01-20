@@ -3,6 +3,7 @@ import { Table,Spinner,Button} from 'react-bootstrap';
 import axios from 'axios';
 import {BsPencilSquare,BsTrash} from "react-icons/bs"
 import {Link,useHistory} from 'react-router-dom'
+import { useToasts } from 'react-toast-notifications';
 
 const IndexPage = () => {
     const history = useHistory();
@@ -10,6 +11,8 @@ const IndexPage = () => {
     const [Category,setCategory] = React.useState([])
     const [loading,setLoading] = React.useState([false])
     const [error,setError] = React.useState()
+    const {addToast} = useToasts()
+
     const getData = async() =>{
         try{
             setLoading(true)
@@ -69,8 +72,8 @@ const IndexPage = () => {
                                   if(isConfirm === true){
                                       try{
                                           const resp =  await axios.delete(`https://api.codingthailand.com/api/category/${c.id}`)
-                                      alert(resp.data.message)
-                                      history.go(0)
+                                          addToast(resp.data.message,{ appearance: 'success',autoDismiss: true})
+                                          history.replace('/category')
                                     }catch(error){
                                         alert(error)
                                     }

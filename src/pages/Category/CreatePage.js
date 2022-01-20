@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
+import { useToasts } from 'react-toast-notifications';
 
 const schema = yup.object({
     name: yup.string().required('Category news cannot ne null'),
@@ -17,6 +18,8 @@ const CreatePage = () => {
 
     const history = useHistory();
 
+    const {addToast} = useToasts()
+
     const onSubmit = async(data) => {
         try{
             //console.log(data)
@@ -26,7 +29,7 @@ const CreatePage = () => {
                     name : data.name
                 }
             )
-            alert(resp.data.message)
+            addToast(resp.data.message,{ appearance: 'success',autoDismiss: true})
             history.goBack()
         }catch(error){
             alert(error)
