@@ -12,7 +12,8 @@ const schema = yup.object({
   }).required();
 
 const EditPage = () => {
-    const { register, handleSubmit, formState:{ errors } } = useForm({
+    const { register, handleSubmit, formState:{ errors },
+    setValue} = useForm({
         resolver: yupResolver(schema)
       });
 
@@ -20,26 +21,25 @@ const EditPage = () => {
 
     const {id} = useParams(); 
 
-    const getData = async() =>{
-            const resp = await axios.get('https://api.codingthailand.com/api/category/'+id)
-            console.log(resp.data)
+    const getData = async(id) => {
+        const response = await axios.get(`https://api.codingthailand.com/api/category/` + id)
+        console.log(response.data)
+        setValue('name',response.data.name)
     }
 
-
-    const onSubmit = async(data) => {
-        // try{
-        //     const apiURL = 'https://api.codingthailand.com/api/category'
-        //     const resp = await axios.post(apiURL,
-        //         {
-        //             name : data.name
-        //         }
-        //     )
-        //     alert(resp.data.message)
-        //     history.goBack()
-        // }catch(error){
-        //     alert(error)
-
-        // }
+    const onSubmit = async (data) => {
+        try {
+          const apiURL = "https://api.codingthailand.com/api/category";
+          const resp = await axios.put(apiURL, {
+            id : id,
+            name: data.name,
+          });
+          alert(resp.data.message)
+          history.replace('/category')
+    }catch(error){
+        console.log(error.response)
+    }
+    
     }
 
     React.useEffect(()=>{
