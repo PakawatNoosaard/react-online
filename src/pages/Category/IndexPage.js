@@ -61,7 +61,7 @@ const IndexPage = () => {
                       <td>{c.id}</td>
                       <td>{c.name}</td>
                       <td>
-                      <Button variant="outline-primary">Edit <BsPencilSquare className="mr-1" /></Button>
+                      <Button variant="outline-primary" onClick={()=> history.push('/category/edit/'+c.id)}>Edit <BsPencilSquare className="mr-1" /></Button>
                       <Button className="ml-2" variant="outline-danger"
                           onClick={
                               async() => {
