@@ -6,5 +6,5 @@ const rootReducer = combineReducers({
     authReducer,
     cartReducer
 })
-
+//test
 export default rootReducer
